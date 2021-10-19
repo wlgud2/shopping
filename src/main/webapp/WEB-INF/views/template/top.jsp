@@ -73,24 +73,16 @@
 					<li class="active"><a href="${root}/">Home</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Product <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Jean</a></li>
-							<li><a href="#">Bag</a></li>
-							<li><a href="#">Shoes</a></li>
+						<ul class="dropdown-menu" id="pmenu">
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="${root}/member/mypage">Mypage</a></li>
 							<li><a href="${root}/review/list">Review</a></li>
-							<li><a href="#">Notice</a></li>
+							<li><a href="${root}/notice/list">Notice</a></li>
 							<li><a href="#">Q&A</a></li>
 						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Product <span class="caret"></span></a>
-						<ul class="dropdown-menu" id="pmenu">
-						</ul></li>
-
 					<li><a id="grade"><span class="glyphicon glyphicon-grain"></span>
 							${str}</a></li>
 				</ul>

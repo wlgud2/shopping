@@ -21,10 +21,10 @@ public interface MemberService {
 
 	int updateFile(Map map);
 
+	List<MemberDTO> list(Map map);
+
 	int total(Map map);
 
-	List<MemberDTO> list(Map map);
-	
 	MemberDTO mypage(String id); // join 하는 거
 
 }

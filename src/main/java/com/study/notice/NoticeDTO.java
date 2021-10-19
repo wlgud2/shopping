@@ -9,6 +9,6 @@ public class NoticeDTO {
 	private String content;
 	private String wname;
 	private String passwd;
-	private int cnt;
-	private String rdate;
+	private int viewcnt;
+	private String ndate;
 }
