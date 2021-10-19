@@ -72,7 +72,6 @@
  <button class="btn btn-default" onclick="updateM()">정보수정</button>
  <button class="btn btn-default" onclick="deleteM()">회원탈퇴</button>
  <button class="btn btn-default" onclick="location.href='${root}/admin/list'">회원목록</button>
- </c:if>
  </div>
  
  <br>
