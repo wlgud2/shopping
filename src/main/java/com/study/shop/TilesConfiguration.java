@@ -13,7 +13,7 @@ public class TilesConfiguration {
       final TilesConfigurer configurer = new TilesConfigurer(); // 레이아웃(탑, 바텀, 양옆), 제목, 브라우저 탭에 뜨는 제목
       //해당 경로에 tiles.xml 파일을 넣음
       configurer.setDefinitions(new String[]{"classpath:/tiles/tiles_member.xml",
-    		  "classpath:/tiles/tiles_contents.xml"});
+    		  "classpath:/tiles/tiles_contents.xml", "classpath:/tiles/tiles_notice.xml"});
       configurer.setCheckRefresh(true);
       return configurer;
   }

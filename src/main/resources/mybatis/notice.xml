@@ -8,13 +8,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into notice
 		values((select nvl(max(noticeno),0)+1 from notice),#{title},
 		#{content}, #{wname},
-		#{passwd}, 0, sysdate);
+		#{passwd}, 0, sysdate)
 	</insert>
 	<!-- 목록 -->
 	<select id="list" parameterType="Map"
 		resultType="com.study.notice.NoticeDTO">
-		SELECT noticeno, title, wname, viewcnt, ndate
-		FROM notice
+		SELECT noticeno, title, wname, viewcnt, ndate, r
+			FROM ( select noticeno, title, wname, viewcnt, ndate, rownum r
+				from( select noticeno, title, wname, viewcnt, ndate
+				from notice
 		<where>	<!-- 검색 -->
 			<choose>
 				<when test="col=='wname'">
@@ -66,7 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 조회수 증가 -->
 	<update id="upViewcnt" parameterType="int">
 		update notice
-		set viewcnt = viewcnt + 1
+		set viewcnt =
+		viewcnt + 1
 		where noticeno = #{noticeno}
 	</update>
 
@@ -79,9 +82,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 패스워드 검사 -->
-	<select id="passwd" resultType="int" parameterType="HashMap">
+	<select id="passcheck" resultType="int" parameterType="HashMap">
 		SELECT
-		COUNT(*) AS cnt
+		COUNT(*)
 		FROM notice
 		WHERE noticeno=#{noticeno} AND
 		passwd=#{passwd}
@@ -100,7 +103,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="int">
 		DELETE FROM notice
 		WHERE
-		noticeno=#{noticeno};
+		noticeno=#{noticeno}
 	</delete>
-
 </mapper>
