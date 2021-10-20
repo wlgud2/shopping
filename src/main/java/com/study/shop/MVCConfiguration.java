@@ -10,6 +10,6 @@ public class MVCConfiguration implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 
 // URL에 "/admin/"이 들어간 요청은 AdminInterceptor가 작동해서 탁 잡음
-		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**");
+		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**/**");
 	}
 }
