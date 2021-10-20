@@ -22,4 +22,8 @@ public interface ContentsMapper {
 		List<ContentsDTO> mainlist(Map map);
 		
 		ContentsDTO detail(int contentsno);
+
+		int passcheck(Map map);
+
+		int delete(int contentsno);
 }

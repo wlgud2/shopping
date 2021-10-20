@@ -24,7 +24,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/read.jsp" />
 	</definition>
-		<definition name="/notice/delete" extends="main">
+	<definition name="/notice/delete" extends="main">
 		<put-attribute name="title" value="공지 삭제"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/deleteForm.jsp" />

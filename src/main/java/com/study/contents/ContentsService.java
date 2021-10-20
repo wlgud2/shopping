@@ -22,5 +22,7 @@ public interface ContentsService {//요청할 수 있는 인터페이스 선언�
 	List<ContentsDTO> mainlist(Map map);
 	
 	ContentsDTO detail(int contentsno);
+
+	int delete(int contentsno);
 }
  

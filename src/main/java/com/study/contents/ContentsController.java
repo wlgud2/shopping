@@ -216,4 +216,25 @@ public class ContentsController {
 		return "/contents/detail";
 	}
 
+	@GetMapping("/contents/delete")
+	public String delete() {
+
+		return "/contents/delete";
+	}
+
+	@PostMapping("/contents/delete")
+	public String delete(HttpServletRequest request, int contentsno, String passwd) {
+
+		Map map = new HashMap();
+		map.put("contentsno", contentsno);
+
+		int cnt = 0;
+		cnt = service.delete(contentsno);
+
+		if (cnt == 1) {
+			return "redirect:./list";
+		} else {
+			return "./notice/error";
+		}
+	}
 }
