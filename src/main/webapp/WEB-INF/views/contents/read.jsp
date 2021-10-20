@@ -7,19 +7,8 @@
 <meta charset="utf-8">
 
 <script type="text/javascript">
-	function updateM() {
-		var url = "/update";
-		url += "?contentsno=${dto.contentsno}";
-		location.href = url;
-	}
-	function deleteM() {
-		var url = "/delete";
-		url += "?contentsno=${dto.contentsno}";
-		location.href = url;
-	}
-
 	function listM() {
-		var url = "/list";
+		var url = "list";
 		url += "?nowPage=${param.nowPage}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -44,10 +33,7 @@
 
 			<div class="panel-heading">가격</div>
 			<div class="panel-body">${dto.price}</div>
-			
-			<div class="panel-heading">재고</div>
-			<div class="panel-body">${dto.stock}</div>
-			
+
 			<div class="panel-heading">상세내용</div>
 			<div class="panel-body">${dto.detail}</div>
 
@@ -56,9 +42,6 @@
 
 		</div>
 		<div>
-			<button type="button" class="btn" onclick="location.href='./create'">등록</button>
-			<button type="button" class="btn" onclick="updateM()">수정</button>
-			<button type="button" class="btn" onclick="deleteM()">삭제</button>
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>

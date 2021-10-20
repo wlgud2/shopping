@@ -121,7 +121,7 @@ public class ContentsController {
 	@GetMapping("/contents/update/{contentsno}")
 	public String update(@PathVariable("contentsno") int contentsno, Model model) {
 
-		ContentsDTO dto = service.read(contentsno);
+		ContentsDTO dto = service.detail(contentsno);
 
 		model.addAttribute("dto", dto);
 
@@ -214,6 +214,12 @@ public class ContentsController {
 	public String detail(@PathVariable("contentsno") int contentsno, Model model) {
 		model.addAttribute("dto", service.detail(contentsno));
 		return "/contents/detail";
+	}
+	
+	@GetMapping("/contents/read/{contentsno}")
+	public String read(@PathVariable("contentsno") int contentsno, Model model) {
+		model.addAttribute("dto", service.read(contentsno));
+		return "/contents/read";
 	}
 
 	@GetMapping("/contents/delete")

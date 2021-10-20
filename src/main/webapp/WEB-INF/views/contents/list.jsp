@@ -10,16 +10,7 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
    <script type="text/javascript">
-     function read(contentsno){
-       var url = "read";
-       url += "?contentsno="+contentsno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
-       location.href=url;
- 
-     }
-     
+    
      function fileDown(filename){
          var url = "fileDown";
          url += "?filename="+filename;
@@ -83,10 +74,10 @@
    <tr>
     <td>${dto.contentsno}</td>
     <td>
-    <img src="/pstorage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
+    <img src="/pstorage/${dto.filename}" class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="javascript:read('${dto.contentsno}')">${dto.pname}</a>
+    <a href="/contents/read/${dto.contentsno }">${dto.pname}</a>
     <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
          <img src="/images/new.gif"> 
     </c:if> 
@@ -95,15 +86,15 @@
     <td>${dto.price}</td>
     <td>${dto.rdate}</td>
     <td>${dto.stock}</td>
-    <td> <a href="./update/${dto.contentsno }">
+    <td> <a href="../admin/contents/update/${dto.contentsno }">
           <span class="glyphicon glyphicon-edit"></span>
         </a>
         /
-        <a href="./delete/${dto.contentsno }">
+        <a href="../admin/contents/delete/${dto.contentsno }">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
         /
-        <a href="./updateFile/${dto.contentsno }/${dto.filename}">
+        <a href="../admin/contents/updateFile/${dto.contentsno }/${dto.filename}">
           <span class="glyphicon glyphicon-picture"></span>
         </a>     
     </td>

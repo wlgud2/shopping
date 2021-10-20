@@ -39,11 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.study.contents.ContentsDTO">
 		select contentsno, cateno, pname, price, filename, stock, rdate, r
 		from (
-		select contentsno, cateno, pname, price, filename, stock,rdate,
+		select contentsno, cateno, pname, price, filename, stock, rdate,
 		rownum r
 		from(
-		select contentsno, cateno,pname, price, filename,
-		stock,rdate
+		select contentsno, cateno, pname, price, filename,
+		stock, rdate
 		from contents
 		<where>
 			<choose>
