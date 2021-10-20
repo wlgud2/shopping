@@ -9,12 +9,12 @@
 <script type="text/javascript">
 	function updateM() {
 		var url = "update";
-		url += "?noticeno=${dto.noticeno}";
+		url += "?contentsno=${dto.contentsno}";
 		location.href = url;
 	}
 	function deleteM() {
 		var url = "delete";
-		url += "?noticeno=${dto.noticeno}";
+		url += "?contentsno=${dto.contentsno}";
 		location.href = url;
 	}
 
@@ -33,20 +33,23 @@
 
 		<h2>조회</h2>
 		<div class="panel panel-default">
+			<div class="panel-heading">상품번호</div>
+			<div class="panel-body">${dto.contentsno}</div>
+			
+			<div class="panel-heading">분류번호</div>
+			<div class="panel-body">${dto.cateno}</div>
+			
 			<div class="panel-heading">상품명</div>
 			<div class="panel-body">${dto.pname}</div>
 
-			<div class="panel-heading">제목</div>
-			<div class="panel-body">${dto.title}</div>
+			<div class="panel-heading">가격</div>
+			<div class="panel-body">${dto.price}</div>
 
-			<div class="panel-heading">내용</div>
-			<div class="panel-body">${dto.content}</div>
-
-			<div class="panel-heading">조회수</div>
-			<div class="panel-body">${dto.viewcnt}</div>
+			<div class="panel-heading">상세내용</div>
+			<div class="panel-body">${dto.detail}</div>
 
 			<div class="panel-heading">등록일</div>
-			<div class="panel-body">${dto.ndate}</div>
+			<div class="panel-body">${dto.rdate}</div>
 
 		</div>
 		<div>

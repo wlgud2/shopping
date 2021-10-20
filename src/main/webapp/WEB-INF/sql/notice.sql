@@ -16,3 +16,17 @@ insert into notice
 values((select nvl(max(noticeno),0)+1 from notice), 'spring 시즌 접수 안내 2', '10% 할인 실시!', '아로미', '1234', 0, sysdate);
 insert into notice
 values((select nvl(max(noticeno),0)+1 from notice), 'spring 시즌 접수 안내 3', '10% 할인 실시!', '투투투', '1234', 0, sysdate);
+
+SELECT noticeno, title, wname, viewcnt, ndate
+FROM notice
+order by ndate desc;
+
+SELECT
+COUNT(*)
+FROM notice
+WHERE noticeno<4 AND
+passwd=1234;
+
+		DELETE FROM notice
+		WHERE
+		noticeno=5;
