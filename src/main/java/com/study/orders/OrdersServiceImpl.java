@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("com.study.order.OrderServiceImpl")
+@Service("com.study.orders.OrdersServiceImpl")
 public class OrdersServiceImpl implements OrdersService {
 	@Autowired
 	private OrdersMapper mapper;

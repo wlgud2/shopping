@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("com.study.order.OrderServiceImpl")
+@Service("com.study.cart.CartServiceImpl")
 public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartMapper mapper;
