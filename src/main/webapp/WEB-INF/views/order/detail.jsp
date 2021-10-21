@@ -33,7 +33,7 @@
 
 			<div class="panel-heading">상품명</div>
 			<div class="panel-body">${dto.pname}</div>
-
+<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px" height="50px">
 			<div class="panel-heading">가격</div>
 			<div class="panel-body">${contents.price}</div>
 

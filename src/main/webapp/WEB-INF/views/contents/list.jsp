@@ -99,12 +99,12 @@
     	</td>
     </c:when>
     <c:otherwise>
-    	<td> <a href="../cart/cart/${dto.contentsno }">
+    	<td> <a href="../cart/create/${dto.contentsno }">
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span class="glyphicon glyphicon-shopping-cart"></span>
        		 </a>
         /
-        <a href="../order/order/${dto.contentsno }">
+        <a href="../order/create/${dto.contentsno }">
           <span class="glyphicon glyphicon-usd"></span>
         </a>
     	</td>
