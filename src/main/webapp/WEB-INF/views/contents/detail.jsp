@@ -22,13 +22,13 @@ pageEncoding="UTF-8"%>
       <div class="panel panel-default">
         <div class="panel-heading">상품번호</div>
         <div class="panel-body">${dto.contentsno}</div>
-
+		
         <div class="panel-heading">분류번호</div>
         <div class="panel-body">${dto.cateno}</div>
 
         <div class="panel-heading">상품명</div>
         <div class="panel-body">${dto.pname}</div>
-
+		<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px" height="50px">
         <div class="panel-heading">가격</div>
         <div class="panel-body">${dto.price}</div>
 
