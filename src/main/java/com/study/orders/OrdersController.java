@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.study.contents.ContentsDTO;
 import com.study.utility.Utility;
 
 @Controller
@@ -84,8 +85,11 @@ public class OrdersController {
 		}
 	}
 
-	@GetMapping("/orders/create")
-	public String create() {
+	@GetMapping("/orders/create/{contentsno}")
+	public String create(@PathVariable("contentsno") int contentsno, Model model) {
+		OrdersDTO dto = service.detail(contentsno);
+
+		model.addAttribute("dto", dto);
 		return "/orders/create";
 	}
 

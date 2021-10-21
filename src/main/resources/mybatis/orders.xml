@@ -6,58 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.study.orders.OrdersMapper">
 	<select id="detail" parameterType="int"
-		resultType="com.study.orders.OrdersDTO">
+		resultType="com.study.contents.ContentsDTO">
 		select *
-		from order
-		where orderno = #{orderno}
-	</select>
-
-	<select id="total" parameterType="Map" resultType="int">
-		select count(*) from contents c left outer join orders o
-		on c.contentsno = o.contentsno
-		<where>
-			<choose>
-				<when test="col=='pname'">
-					c.pname like '%'||#{word}||'%'
-				</when>
-				<when test="col=='price'">
-					c.price like '%'||#{word}||'%'
-				</when>
-				<when test="col=='cateno'">
-					c.cateno = #{word}
-				</when>
-			</choose>
-		</where>
-	</select>
-
-	<select id="list" parameterType="Map"
-		resultType="com.study.orders.OrdersDTO">
-		select orderno, pname, price, filename, odate, r
-		from (
-		select orderno, pname, price, filename, odate,
-		rownum r
-		from(
-		select orderno, pname, price, filename, odate
-		from contents c left outer join orders o
-		on c.contentsno = o.contentsno
-		<where>
-			<choose>
-				<when test="col=='pname'">
-					c.pname like '%'||#{word}||'%'
-				</when>
-				<when test="col=='price'">
-					c.price like '%'||#{word}||'%'
-				</when>
-				<when test="col=='cateno'">
-					c.cateno = #{word}
-				</when>
-			</choose>
-		</where>
-		order by o.orderno desc
-		)
-        <![CDATA[       
-                )where r >= #{sno} and r <= #{eno}
-        ]]><!-- 오라클에서는 이렇게 나눠서 해줘야함 -->
+		from contents
+		where contentsno=#{contentsno}
 	</select>
 
 	<insert id="create" parameterType="com.study.orders.OrdersDTO">

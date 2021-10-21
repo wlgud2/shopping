@@ -5,17 +5,6 @@
 <head>
 <title>상세페이지</title>
 <meta charset="utf-8">
-
-<script type="text/javascript">
-	function listM() {
-		var url = "/list";
-		url += "?nowPage=${param.nowPage}";
-		url += "&col=${param.col}";
-		url += "&word=${param.word}";
-		location.href = url;
-	}
-</script>
-
 </head>
 <body>
 	<div class="container">
@@ -28,14 +17,11 @@
 			<div class="panel-heading">상품번호</div>
 			<div class="panel-body">${dto.contentsno}</div>
 
-			<div class="panel-heading">분류번호</div>
-			<div class="panel-body">${dto.cateno}</div>
-
 			<div class="panel-heading">상품명</div>
 			<div class="panel-body">${dto.pname}</div>
 <img src="/pstorage/${dto.filename}" class="img-rounded" width="50px" height="50px">
 			<div class="panel-heading">가격</div>
-			<div class="panel-body">${contents.price}</div>
+			<div class="panel-body">${dto.price}</div>
 
 			<div class="panel-heading">갯수</div>
 			<div class="panel-body">${dto.quantity}</div>
@@ -51,7 +37,7 @@
 
 		</div>
 		<div>
-			<button type="button" class="btn" onclick="listM()">목록</button>
+			<button type="button" class="btn" onclick="location.href='../../member/mypage'">목록</button>
 		</div>
 	</div>
 </body>

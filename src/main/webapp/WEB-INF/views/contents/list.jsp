@@ -104,7 +104,7 @@
           <span class="glyphicon glyphicon-shopping-cart"></span>
        		 </a>
         /
-        <a href="../order/create/${dto.contentsno }">
+        <a href="../orders/create/${dto.contentsno }">
           <span class="glyphicon glyphicon-usd"></span>
         </a>
     	</td>
