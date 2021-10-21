@@ -36,8 +36,11 @@
 			enctype="multipart/form-data" onsubmit="return checkIn(this)">
 
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="pname">상품명:
-					${pname }</label>
+				<label class="control-label col-sm-2" for="pname">상품명</label>
+				<div class="col-sm-8">
+					<input type="text" value="${pname }" id="pname"
+						class="form-control-plaintext">
+				</div>
 			</div>
 			<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px"
 				height="50px">
@@ -55,21 +58,33 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="price">가격:
-					${price*quantity}</label>
+				<label class="control-label col-sm-2" for="price">가격</label>
+				<div class="col-sm-8">
+					<input type="text" value="${price}" id="price"
+						class="form-control-plaintext">
+				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="detail">상품 설명:
-					${detail }</label>
+				<label class="control-label col-sm-2" for="detail">상품 정보</label>
+				<div class="col-sm-8">
+					<input type="text" value="${detail}" id="detail"
+						class="form-control-plaintext">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="mname">받는 사람:
-					${mname}</label>
+				<label class="control-label col-sm-2" for="mname">받는 사람</label>
+				<div class="col-sm-8">
+					<input type="text" value="${mname}" id="mname"
+						class="form-control-plaintext">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="address">주소:
-					${address1},${address2 }</label>
+				<label class="control-label col-sm-2" for="address">주소</label>
+				<div class="col-sm-8">
+					<input type="text" value="${address1},${address2}" id="address"
+						class="form-control-plaintext">
+				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-5">
