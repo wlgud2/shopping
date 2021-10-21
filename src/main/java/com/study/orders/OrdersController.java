@@ -30,39 +30,6 @@ public class OrdersController {
 	@Qualifier("com.study.orders.OrdersServiceImpl")
 	private OrdersService service;
 
-	@PostMapping("/orders/updateFile")
-	public String updateFile(MultipartFile filenameMF, String oldfile, int orderno, HttpServletRequest request)
-			throws IOException {
-		String basePath = new ClassPathResource("/static/pstorage").getFile().getAbsolutePath();
-
-		if (oldfile != null && !oldfile.equals("default.jpg")) { // 원본파일 삭제
-			Utility.deleteFile(basePath, oldfile);
-		}
-
-		// pstorage에 변경 파일 저장
-		Map map = new HashMap();
-		map.put("orderno", orderno);
-		map.put("fname", Utility.saveFileSpring(filenameMF, basePath));
-
-		// 디비에 파일명 변경
-		int cnt = service.updateFile(map);
-
-		if (cnt == 1) {
-			return "redirect:./list";
-		} else {
-			return "./error";
-		}
-	}
-
-	@GetMapping("/admin/updateFile/{orderno}/{oldfile}")
-	public String updateFileForm(@PathVariable("orderno") int orderno, @PathVariable("oldfile") String oldfile,
-			Model model) {
-		model.addAttribute("orderno", orderno);
-		model.addAttribute("oldfile", oldfile);
-
-		return "/orders/updateFile";
-	}
-
 	@RequestMapping("/orders/list")
 	public String list(HttpServletRequest request) {
 		// 검색관련------------------------
@@ -131,16 +98,6 @@ public class OrdersController {
 
 	@PostMapping("/orders/create")
 	public String create(OrdersDTO dto, HttpServletRequest request) throws IOException {
-		String upDir = new ClassPathResource("/static/pstorage").getFile().getAbsolutePath();
-
-		String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
-		int size = (int) dto.getFilenameMF().getSize();
-
-		if (size > 0) {
-			dto.setFilename(fname);
-		} else {
-			dto.setFilename("default.jpg");
-		}
 
 		if (service.create(dto) > 0) {
 			return "redirect:./list";

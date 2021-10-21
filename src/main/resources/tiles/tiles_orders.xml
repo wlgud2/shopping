@@ -4,43 +4,29 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="/contents/create" extends="main">
+	<definition name="/orders/create" extends="main">
 		<put-attribute name="title" value="상품등록"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/contents/createForm.jsp" />
+			value="/WEB-INF/views/orders/createForm.jsp" />
 	</definition>
-	<definition name="/contents/list" extends="main">
+	<definition name="/orders/list" extends="main">
 		<put-attribute name="title" value="상품목록"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/contents/list.jsp" />
+			value="/WEB-INF/views/orders/list.jsp" />
 	</definition>
-	<definition name="/contents/update" extends="main">
+	<definition name="/orders/update" extends="main">
 		<put-attribute name="title" value="상품수정"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/contents/updateForm.jsp" />
+			value="/WEB-INF/views/orders/updateForm.jsp" />
 	</definition>
-	<definition name="/contents/updateFile" extends="main">
-		<put-attribute name="title" value="사진수정"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/views/contents/updateFileForm.jsp" />
-	</definition>
-	    <definition name="/contents/mainlist" extends="main"> 
-            <put-attribute name="title" value="상품메인목록" ></put-attribute> 
-            <put-attribute name="body" value="/WEB-INF/views/contents/mainlist.jsp" /> 
-    </definition>
-	<definition name="/contents/detail" extends="main">
+	<definition name="/orders/detail" extends="main">
 		<put-attribute name="title" value="상품 상세정보"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/contents/detail.jsp" />
+			value="/WEB-INF/views/orders/detail.jsp" />
 	</definition>
-	<definition name="/contents/delete" extends="main">
+	<definition name="/orders/delete" extends="main">
 		<put-attribute name="title" value="상품 삭제"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/contents/deleteForm.jsp" />
-	</definition>
-	<definition name="/contents/order" extends="main">
-		<put-attribute name="title" value="주문"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/views/contents/order.jsp" />
+			value="/WEB-INF/views/orders/deleteForm.jsp" />
 	</definition>
 </tiles-definitions>
