@@ -12,12 +12,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where contentsno = #{conentsno}
 	</select>
 
-	<update id="updateFile" parameterType="Map">
-		update contents
-		set
-		filename = #{fname}
-		where contentsno = #{contentsno}
-	</update>
 	<select id="total" parameterType="Map" resultType="int">
 		select count(*) from contents
 		<where>
