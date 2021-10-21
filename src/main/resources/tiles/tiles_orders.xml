@@ -19,9 +19,4 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/orders/detail.jsp" />
 	</definition>
-	<definition name="/orders/delete" extends="main">
-		<put-attribute name="title" value="구매 목록 삭제"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/views/orders/deleteForm.jsp" />
-	</definition>
 </tiles-definitions>

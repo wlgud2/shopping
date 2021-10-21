@@ -54,26 +54,17 @@
 				<label class="control-label col-sm-2" for="pname">상품명: ${pname }</label>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="price">가격</label>
-				<div class="col-sm-8">
-					<input type="text" name="price" id="price" class="form-control">
-				</div>
+				<label class="control-label col-sm-2" for="price">가격: ${price*quantity}</label>
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="detail">상세정보</label>
+				<label class="control-label col-sm-2" for="detail">상품 설명: ${detail }</label>
 				<div class="col-sm-8">
 					<textarea rows="12" cols="7" id="detail" name="detail"
 						class="form-control"></textarea>
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="stock">재고</label>
-				<div class="col-sm-6">
-					<input type="text" name="stock" id="stock" class="form-control">
-				</div>
-			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="filenameMF">상품이미지</label>
 				<div class="col-sm-6">
@@ -83,7 +74,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-5">
-					<button class="btn">등록</button>
+					<button class="btn">구매</button>
 					<button type="reset" class="btn" onclick="location.href='./list'">취소</button>
 				</div>
 			</div>

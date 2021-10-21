@@ -22,6 +22,9 @@
 
 		<h2>조회</h2>
 		<div class="panel panel-default">
+			<div class="panel-heading">주문번호</div>
+			<div class="panel-body">${dto.orderno}</div>
+
 			<div class="panel-heading">상품번호</div>
 			<div class="panel-body">${dto.contentsno}</div>
 
@@ -32,34 +35,22 @@
 			<div class="panel-body">${dto.pname}</div>
 
 			<div class="panel-heading">가격</div>
-			<div class="panel-body">${dto.price}</div>
+			<div class="panel-body">${contents.price}</div>
 
-			<div class="panel-heading">재고</div>
-			<div class="panel-body">${dto.stock}</div>
+			<div class="panel-heading">갯수</div>
+			<div class="panel-body">${dto.quantity}</div>
 
-			<div class="panel-heading">상세내용</div>
-			<div class="panel-body">${dto.detail}</div>
+			<div class="panel-heading">결제 금액</div>
+			<div class="panel-body">${dto.total}</div>
 
-			<div class="panel-heading">등록일</div>
-			<div class="panel-body">${dto.rdate}</div>
+			<div class="panel-heading">결제 수단</div>
+			<div class="panel-body">${dto.payment}</div>
+
+			<div class="panel-heading">결제 날짜</div>
+			<div class="panel-body">${dto.odate}</div>
 
 		</div>
 		<div>
-			<c:choose>
-				<c:when
-					test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-					<button type="button" class="btn"
-						onclick="location.href='/admin/create'">등록</button>
-					<button type="button" class="btn"
-						onclick="location.href='/admin/update/${contentsno}'">수정</button>
-					<button type="button" class="btn"
-						onclick="location.href='/admin/delete/${contentsno}'">삭제</button>
-				</c:when>
-				<c:otherwise>
-					<button type="button" class="btn"
-						onclick="location.href='../orders/create/${contentsno}'">구매하기</button>
-				</c:otherwise>
-			</c:choose>
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>
