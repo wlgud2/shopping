@@ -24,5 +24,7 @@ public interface ContentsService {//요청할 수 있는 인터페이스 선언�
 	ContentsDTO detail(int contentsno);
 
 	int delete(int contentsno);
+
+	int passcheck(String passwd);
 }
  

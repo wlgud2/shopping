@@ -23,7 +23,7 @@ public interface ContentsMapper {
 		
 		ContentsDTO detail(int contentsno);
 
-		int passcheck(Map map);
+		int passcheck(String passwd);
 
 		int delete(int contentsno);
 }

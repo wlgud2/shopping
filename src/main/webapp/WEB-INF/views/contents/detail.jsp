@@ -7,17 +7,6 @@
 <meta charset="utf-8">
 
 <script type="text/javascript">
-	function updateM() {
-		var url = "/update";
-		url += "?contentsno=${dto.contentsno}";
-		location.href = url;
-	}
-	function deleteM() {
-		var url = "/delete";
-		url += "?contentsno=${dto.contentsno}";
-		location.href = url;
-	}
-
 	function listM() {
 		var url = "/list";
 		url += "?nowPage=${param.nowPage}";
@@ -56,9 +45,9 @@
 
 		</div>
 		<div>
-			<button type="button" class="btn" onclick="location.href='./create'">등록</button>
-			<button type="button" class="btn" onclick="updateM()">수정</button>
-			<button type="button" class="btn" onclick="deleteM()">삭제</button>
+			<button type="button" class="btn" onclick="location.href='/admin/create'">등록</button>
+			<button type="button" class="btn" onclick="location.href='/admin/update/${contentsno}'">수정</button>
+			<button type="button" class="btn" onclick="location.href='/admin/delete/${contentsno}'">삭제</button>
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>

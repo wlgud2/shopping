@@ -15,8 +15,8 @@
 	<div class="container">
 
 		<h2 class="col-sm-offset-2 col-sm-10">삭제</h2>
-		<form class="form-horizontal" action="/contents/delete" method="post">
-			<input type="hidden" name="contentsno" value="${param.contentsno}">
+		<form class="form-horizontal" action="../../contents/delete" method="post">
+			<input type="hidden" name="contentsno" value="${contentsno}">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="passwd">비밀번호</label>
 				<div class="col-sm-6">

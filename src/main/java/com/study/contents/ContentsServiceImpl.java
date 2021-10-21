@@ -70,4 +70,10 @@ public class ContentsServiceImpl implements ContentsService {
 		// TODO Auto-generated method stub
 		return mapper.delete(contentsno);
 	}
+
+	@Override
+	public int passcheck(String passwd) {
+		// TODO Auto-generated method stub
+		return mapper.passcheck(passwd);
+	}
 }

@@ -85,12 +85,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate, #{stock})
 	</insert>
 
-	<select id="read" parameterType="int"
-		resultType="com.study.contents.ContentsDTO">
-		select * from contents
-		where contentsno = #{contentsno}
-	</select>
-
 	<select id="getCategory" resultType="Map">
 		select cateno, catename from
 		category
@@ -122,6 +116,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <![CDATA[   
         )where r >= #{sno} and r <= #{eno}
     ]]>
+	</select>
+	<!-- 관리자 패스워드 검사 -->
+	<select id="passcheck" resultType="int" parameterType="String">
+		SELECT
+		COUNT(*)
+		FROM member
+		WHERE id= 'admin' AND
+		passwd=#{passwd}
 	</select>
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="int">

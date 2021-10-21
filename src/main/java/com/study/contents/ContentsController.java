@@ -54,7 +54,7 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/contents/updateFile/{contentsno}/{oldfile}")
+	@GetMapping("/admin/updateFile/{contentsno}/{oldfile}")
 	public String updateFileForm(@PathVariable("contentsno") int contentsno, @PathVariable("oldfile") String oldfile,
 			Model model) {
 		model.addAttribute("contentsno", contentsno);
@@ -118,7 +118,7 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/contents/update/{contentsno}")
+	@GetMapping("/admin/update/{contentsno}")
 	public String update(@PathVariable("contentsno") int contentsno, Model model) {
 
 		ContentsDTO dto = service.detail(contentsno);
@@ -215,29 +215,26 @@ public class ContentsController {
 		model.addAttribute("dto", service.detail(contentsno));
 		return "/contents/detail";
 	}
-	
-	@GetMapping("/contents/read/{contentsno}")
-	public String read(@PathVariable("contentsno") int contentsno, Model model) {
-		model.addAttribute("dto", service.read(contentsno));
-		return "/contents/read";
-	}
 
-	@GetMapping("/contents/delete")
-	public String delete() {
-
+	@GetMapping("/admin/delete/{contentsno}")
+	public String delete(@PathVariable("contentsno") int contentsno) {
 		return "/contents/delete";
 	}
 
 	@PostMapping("/contents/delete")
 	public String delete(HttpServletRequest request, int contentsno, String passwd) {
 
-		Map map = new HashMap();
-		map.put("contentsno", contentsno);
+		int pcnt = service.passcheck(passwd);//관리자 패스워드 검사
 
 		int cnt = 0;
-		cnt = service.delete(contentsno);
+		if (pcnt == 1) {
 
-		if (cnt == 1) {
+			cnt = service.delete(contentsno);
+		}
+
+		if (pcnt != 1) {
+			return "./notice/passwdError";
+		} else if (cnt == 1) {
 			return "redirect:./list";
 		} else {
 			return "./notice/error";

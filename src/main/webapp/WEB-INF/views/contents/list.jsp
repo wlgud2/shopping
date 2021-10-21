@@ -77,7 +77,7 @@
     <img src="/pstorage/${dto.filename}" class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="/contents/read/${dto.contentsno }">${dto.pname}</a>
+    <a href="/contents/detail/${dto.contentsno }">${dto.pname}</a>
     <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
          <img src="/images/new.gif"> 
     </c:if> 
@@ -86,15 +86,15 @@
     <td>${dto.price}</td>
     <td>${dto.rdate}</td>
     <td>${dto.stock}</td>
-    <td> <a href="../admin/contents/update/${dto.contentsno }">
+    <td> <a href="../admin/update/${dto.contentsno }">
           <span class="glyphicon glyphicon-edit"></span>
         </a>
         /
-        <a href="../admin/contents/delete/${dto.contentsno }">
+        <a href="../admin/delete/${dto.contentsno }">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
         /
-        <a href="../admin/contents/updateFile/${dto.contentsno }/${dto.filename}">
+        <a href="../admin/updateFile/${dto.contentsno }/${dto.filename}">
           <span class="glyphicon glyphicon-picture"></span>
         </a>     
     </td>
