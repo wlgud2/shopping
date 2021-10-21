@@ -7,24 +7,11 @@ public interface OrdersService {//요청할 수 있는 인터페이스 선언돼
 
 	int create(OrdersDTO dto);
 
-	int update(OrdersDTO dto);
-
 	int total(Map map);
 
 	List<OrdersDTO> list(Map map);
 
-	int updateFile(Map map);
-
-	OrdersDTO read(int orderno);
-	
-	List<Map> getCategory();
-	
-	List<OrdersDTO> mainlist(Map map);
-	
 	OrdersDTO detail(int orderno);
-
-	int delete(int orderno);
-
-	int passcheck(String passwd);
+	
 }
  

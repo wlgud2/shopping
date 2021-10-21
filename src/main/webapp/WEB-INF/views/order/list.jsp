@@ -13,7 +13,7 @@
 <body>
 <div class="container">
  
-  <h2>상품 목록</h2>
+  <h2>구매 목록</h2>
   <form class="form-inline" action="./list">
     <div class="form-group">
       <select class="form-control" name="col">
@@ -36,89 +36,39 @@
       name="word" value="${word}">
     </div>
     <button type="submit" class="btn btn-default" >검색</button>
-    <button type="button" class="btn btn-default" onclick="location.href='../admin/create'">등록</button>
   </form>
   
   <table class="table table-striped">
    <thead>
     <tr>
-    <th>번호</th>
-    <th>상품이미지</th>
+	<th>주문번호</th>
     <th>상품명</th>
+    <th>상품이미지</th>
+    <th>갯수</th>
     <th>가격</th>
-    <th>등록날짜</th>
-    <th>재고</th>
-    <c:choose>
-    <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-    	<th>수정/삭제/이미지수정</th>
-    </c:when>
-    <c:otherwise>
-    	<th>장바구니/구매</th>
-    </c:otherwise>
-    </c:choose>
+    <th>구매날짜</th>
     </tr>
    </thead>
    <tbody>
- 
+<tr>
 <c:choose>   
-<c:when test="${empty list}">
-   <tr><td colspan="6">등록된 상품이 없습니다.</td>
+<c:when test="${empty dto.list}">
+   <tr><td colspan="6">구매한 상품이 없습니다.</td>
 </c:when>
 <c:otherwise>
-  
-   <c:forEach var="dto" items="${list}"> 
-   
-   <tr>
-    <td>${dto.contentsno}</td>
-    <td>
-    <img src="/pstorage/${dto.filename}" class="img-rounded" width="100px" height="100px">
-    </td>
-    <td>
-    <a href="/contents/detail/${dto.contentsno }">${dto.pname}</a>
-    <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
-         <img src="/images/new.gif"> 
-    </c:if> 
-    
-    </td>
-    <td>${dto.price}</td>
-    <td>${dto.rdate}</td>
-    <td>${dto.stock}</td>
-	<c:choose>
-    <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-    	<td> <a href="../admin/update/${dto.contentsno }">
-          &nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>
-       		 </a>
-        /
-        <a href="../admin/delete/${dto.contentsno }">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-        /
-        <a href="../admin/updateFile/${dto.contentsno }/${dto.filename}">
-          <span class="glyphicon glyphicon-picture"></span>
-        </a>     
-    	</td>
-    </c:when>
-    <c:otherwise>
-    	<td> <a href="../cart/cart/${dto.contentsno }">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="glyphicon glyphicon-shopping-cart"></span>
-       		 </a>
-        /
-        <a href="../order/order/${dto.contentsno }">
-          <span class="glyphicon glyphicon-usd"></span>
-        </a>
-    	</td>
-    </c:otherwise>
-    </c:choose>
-    
-   </tr>
+   <c:forEach var="order" items="${dto.list}"> 
+	<li class="list-group-item">
+	<a href="/orders/detail/${order.orderno }">${order.orderno}</a>
+	/<a href="/contents/detail/${dto.contentsno }">${dto.pname}</a>
+	/<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px" height="50px">
+	/${order.quantity}/${order.total }원/${fn:substring(order.odate,0,10)}
+	<a href="review/create/{order.contentsno}"><span class="badge">Review</span></a></li>
    </c:forEach>
-   </c:otherwise>
-   </c:choose>
- 
-   </tbody>
-  
-  </table>
+</c:otherwise>
+</c:choose>
+</tr>
+</tbody>
+</table>
   <div>
       ${paging}
   </div>
