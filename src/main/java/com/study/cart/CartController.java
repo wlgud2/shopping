@@ -6,20 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.study.utility.Utility;
 
@@ -74,28 +68,6 @@ public class CartController {
 
 	}
 
-	@PostMapping("/cart/update")
-	public String update(CartDTO dto) {
-		int cnt = service.update(dto);
-
-		if (cnt == 1) {
-			return "redirect:./list";
-		} else {
-			return "error";
-		}
-	}
-
-	@GetMapping("/admin/update/{orderno}")
-	public String update(@PathVariable("orderno") int orderno, Model model) {
-
-		CartDTO dto = service.detail(orderno);
-
-		model.addAttribute("dto", dto);
-
-		return "/cart/update";
-
-	}
-
 	@PostMapping("/cart/create")
 	public String create(CartDTO dto, HttpServletRequest request) throws IOException {
 
@@ -111,21 +83,17 @@ public class CartController {
 		return "/cart/create";
 	}
 
-	@GetMapping("/cart/detail/{orderno}")
-	public String detail(@PathVariable("orderno") int orderno, Model model) {
-		model.addAttribute("dto", service.detail(orderno));
-		return "/cart/detail";
-	}
-
 	@GetMapping("/cart/delete/{orderno}")
 	public String delete(@PathVariable("orderno") int orderno) {
 		return "/cart/delete";
 	}
 
 	@PostMapping("/cart/delete")
-	public String delete(HttpServletRequest request, int orderno, String passwd) {
-
-		int pcnt = service.passcheck(passwd);//관리자 패스워드 검사
+	public String delete(HttpServletRequest request, int orderno, String id, String passwd) {
+		Map map = new HashMap();
+		map.put("id", id);
+		map.put("passwd", passwd);
+		int pcnt = service.passcheck(map);//관리자 패스워드 검사
 
 		int cnt = 0;
 		if (pcnt == 1) {
@@ -134,11 +102,11 @@ public class CartController {
 		}
 
 		if (pcnt != 1) {
-			return "./notice/passwdError";
+			return "../notice/passwdError";
 		} else if (cnt == 1) {
 			return "redirect:./list";
 		} else {
-			return "./notice/error";
+			return "../notice/error";
 		}
 	}
 }

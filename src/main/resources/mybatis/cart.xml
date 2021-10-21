@@ -5,21 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.study.cart.CartMapper">
-	<select id="detail" parameterType="int"
-		resultType="com.study.cart.CartDTO">
-		select contentsno, cateno, pname, price, filename, stock, detail, rdate
-		from contents
-		where contentsno = #{conentsno}
-	</select>
-
-	<update id="updateFile" parameterType="Map">
-		update contents
-		set
-		filename = #{fname}
-		where contentsno = #{contentsno}
-	</update>
 	<select id="total" parameterType="Map" resultType="int">
-		select count(*) from contents
+		select count(*) from contents c left outer join orders o
+		on c.contentsno = o.contentsno
 		<where>
 			<choose>
 				<when test="col=='pname'">
@@ -37,42 +25,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="list" parameterType="Map"
 		resultType="com.study.cart.CartDTO">
-		select contentsno, cateno, pname, price, filename, stock, rdate, r
+		select cartno, pname, price, filename, stock, r
 		from (
-		select contentsno, cateno, pname, price, filename, stock, rdate,
+		select cartno, pname, price, filename, stock,
 		rownum r
 		from(
-		select contentsno, cateno, pname, price, filename,
-		stock, rdate
-		from contents
+		select cartno, pname, price, filename, stock
+		from contents c left outer join cart ct
+		on c.cartno = ct.cartno
 		<where>
 			<choose>
 				<when test="col=='pname'">
-					pname like '%'||#{word}||'%'
+					c.pname like '%'||#{word}||'%'
 				</when>
 				<when test="col=='price'">
-					price like '%'||#{word}||'%'
+					c.price like '%'||#{word}||'%'
 				</when>
 				<when test="col=='cateno'">
-					cateno = #{word}
+					c.cateno = #{word}
 				</when>
 			</choose>
 		</where>
-		order by contentsno desc
+		order by ct.cartno desc
 		)
         <![CDATA[       
                 )where r >= #{sno} and r <= #{eno}
         ]]><!-- 오라클에서는 이렇게 나눠서 해줘야함 -->
 	</select>
-
-	<update id="update"
-		parameterType="com.study.cart.CartDTO">
-		update contents
-		set pname =#{pname},
-		price = #{price},
-		detail = #{detail}
-		where contentsno =#{contentsno}
-	</update>
 
 	<insert id="create"
 		parameterType="com.study.cart.CartDTO">
@@ -85,17 +64,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate, #{stock})
 	</insert>
 	<!-- 관리자 패스워드 검사 -->
-	<select id="passcheck" resultType="int" parameterType="String">
+	<select id="passcheck" resultType="int" parameterType="Map">
 		SELECT
 		COUNT(*)
-		FROM member
-		WHERE id= 'admin' AND
-		passwd=#{passwd}
+		FROM member m left outer join cart ct
+		on m.id = ct.id
+		WHERE m.id= #{id} AND
+		m.passwd=#{passwd}
 	</select>
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="int">
-		DELETE FROM contents
+		DELETE FROM cart
 		WHERE
-		contentsno=#{contentsno}
+		cartno=#{cartno}
 	</delete>
 </mapper>
