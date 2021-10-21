@@ -48,6 +48,7 @@
 			<button type="button" class="btn" onclick="location.href='/admin/create'">등록</button>
 			<button type="button" class="btn" onclick="location.href='/admin/update/${contentsno}'">수정</button>
 			<button type="button" class="btn" onclick="location.href='/admin/delete/${contentsno}'">삭제</button>
+			
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>
