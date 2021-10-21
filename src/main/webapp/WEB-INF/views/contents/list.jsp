@@ -9,16 +9,6 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-   <script type="text/javascript">
-    
-     function fileDown(filename){
-         var url = "fileDown";
-         url += "?filename="+filename;
-         location.href=url;
-        }
-  
-  </script>
- 
 </head>
 <body>
 <div class="container">
@@ -58,7 +48,14 @@
     <th>가격</th>
     <th>등록날짜</th>
     <th>재고</th>
-    <th>수정/삭제/이미지수정</th>
+    <c:choose>
+    <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+    	<th>수정/삭제/이미지수정</th>
+    </c:when>
+    <c:otherwise>
+    	<th>장바구니/구매</th>
+    </c:otherwise>
+    </c:choose>
     </tr>
    </thead>
    <tbody>
@@ -86,9 +83,11 @@
     <td>${dto.price}</td>
     <td>${dto.rdate}</td>
     <td>${dto.stock}</td>
-    <td> <a href="../admin/update/${dto.contentsno }">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a>
+	<c:choose>
+    <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+    	<td> <a href="../admin/update/${dto.contentsno }">
+          &nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>
+       		 </a>
         /
         <a href="../admin/delete/${dto.contentsno }">
           <span class="glyphicon glyphicon-trash"></span>
@@ -97,7 +96,21 @@
         <a href="../admin/updateFile/${dto.contentsno }/${dto.filename}">
           <span class="glyphicon glyphicon-picture"></span>
         </a>     
-    </td>
+    	</td>
+    </c:when>
+    <c:otherwise>
+    	<td> <a href="../cart/cart/${dto.contentsno }">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+       		 </a>
+        /
+        <a href="../order/order/${dto.contentsno }">
+          <span class="glyphicon glyphicon-usd"></span>
+        </a>
+    	</td>
+    </c:otherwise>
+    </c:choose>
+    
    </tr>
    </c:forEach>
    </c:otherwise>
