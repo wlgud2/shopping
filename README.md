@@ -2,6 +2,10 @@
 
 ![홈페이지](README.assets/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)
 
+> 목표
+>
+> > 개발 프레임워크를 이해하고 이를 활용한 쇼핑몰 홈페이지 제작
+
 > 주요 구현 기능
 
 - **[회원가입](https://github.com/wlgud2/shopping/blob/master/%EC%B0%B8%EA%B3%A0%EC%82%AC%EC%A7%84/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.PNG), [로그인/로그아웃](https://github.com/wlgud2/shopping/blob/master/%EC%B0%B8%EA%B3%A0%EC%82%AC%EC%A7%84/%EB%A1%9C%EA%B7%B8%EC%9D%B8.PNG)**
@@ -18,7 +22,7 @@
 
 ---
 
-> 구현 기능 코드
+> 코드
 
 1. 공지사항
    - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/notice)
@@ -32,3 +36,4 @@
 4. 장바구니
    - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/cart)
    - [controller](https://github.com/wlgud2/shopping/blob/master/src/main/java/com/study/cart/CartController.java)
+
