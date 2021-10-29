@@ -1,13 +1,21 @@
-<!-- Heading -->
+# Spring Boot 기반 쇼핑몰 Project
 
-# Heading 1
+![홈페이지](README.assets/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)
 
-## Heading 2
+> 주요 구현 기능
 
-### Heading 3
+---
 
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
+- **회원가입, 로그인/로그아웃**
+- **MyPage**
+  - 주문목록, 리뷰
+- **공지사항**
+  - 목록, 등록, 수정, 삭제
+- **상품**
+  - 목록, 상세페이지
+  - 등록, 수정, 삭제
+  - 주문하기, 장바구니
+- **댓글**
+  - 비동기
+- **QnA**
+  - 챗봇
