@@ -25,7 +25,7 @@
 			</div>
 			<div class="col-sm-6">
 				<h3>
-					<span class="glyphicon glyphicon-gift"></span> 주문 내역 및 리뷰 작성
+					<span class="glyphicon glyphicon-gift"></span> 주문 내역
 				</h3>
 				<ul class="list-group">
 					<c:choose>
@@ -33,7 +33,8 @@
 						<c:otherwise>
 							<c:forEach var="orders" items="${dto.list}">
 								<li class="list-group-item">
-								<a href="/orders/detail/${orders.orderno}">${orders.orderno }&nbsp;|&nbsp;${fn:substring(orders.odate,0,10)},
+								<a href="/orders/detail/${orders.orderno}">${orders.orderno }
+								&nbsp;|&nbsp;${fn:substring(orders.odate,0,10)},
 									${orders.pname},${orders.quantity}, ${orders.total }원</a>
 								</li>
 							</c:forEach>

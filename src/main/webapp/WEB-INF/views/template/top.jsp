@@ -87,6 +87,7 @@
 							${str}</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+				<li><a href="../shopping_chatting">1:1문의</a></li>
 					<c:choose>
 						<c:when test="${empty sessionScope.id }">
 							<li><a href="${root}/member/agree"><span

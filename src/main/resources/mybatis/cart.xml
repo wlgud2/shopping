@@ -54,14 +54,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create"
-		parameterType="com.study.cart.CartDTO">
-		insert into cart(contentsno, cateno, pname, price,
-		filename, detail,
-		rdate, stock)
-		values((select nvl(max(contentsno),0)+1
-		from contents),
-		#{cateno},#{pname}, #{price}, #{filename}, #{detail},
-		sysdate, #{stock})
+		parameterType="com.study.cart.JoinDTO">
+		insert into cart(cartno, id)
+		from orders o left outer join member m
+		on o.mname= m.mname
+		values(#{cartno}, #{id});
+		insert into order(contentsno)
+		from orders o left outer join cart ct
+		on  o.id = ct.id
+		values(#{contentsno})
 	</insert>
 	<!-- 관리자 패스워드 검사 -->
 	<select id="passcheck" resultType="int" parameterType="Map">

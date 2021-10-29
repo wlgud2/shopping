@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.utility.Utility;
 
@@ -23,7 +23,7 @@ public class NoticeController {
 	@Qualifier("com.study.notice.NoticeServiceImpl")
 	private NoticeService service;
 	
-	@GetMapping("/notice/create")
+	@GetMapping("/admin/notice/create")
 	public String create() {
 
 		return "/notice/create";
@@ -33,11 +33,7 @@ public class NoticeController {
 	public String create(NoticeDTO dto) {
 
 		if (service.create(dto) == 1) {
-//			response.setCharacterEncoding("EUC-KR");//alert에 한글 띄우기 위한 코드
-//			response.getWriter().println("<script>alert ('글 등록 완료');</script>");//java에서 jsp로 alert창 띄우기
-//			response.getWriter().flush();
-//			response.getWriter().close();
-			return "redirect:./list";
+			return "redirect:../notice/list";
 		} else {
 			return "./error";
 		}
@@ -104,7 +100,7 @@ public class NoticeController {
 		return "/notice/read";
 	}
 
-	@GetMapping("/notice/update")
+	@GetMapping("/admin/notice/update")
 	public String update(int noticeno, Model model) {
 
 		model.addAttribute("dto", service.read(noticeno));
@@ -129,14 +125,14 @@ public class NoticeController {
 		if (pcnt != 1) {
 			return "./notice/passwdError";
 		} else if (cnt == 1) {
-			return "redirect:./list";
+			return "redirect:../notice/list";
 		} else {
 			return "./notice/error";
 		}
 
 	}
 
-	@GetMapping("/notice/delete")
+	@GetMapping("/admin/notice/delete")
 	public String delete() {
 
 		return "/notice/delete";
@@ -159,7 +155,7 @@ public class NoticeController {
 		if (pcnt != 1) {
 			return "./notice/passwdError";
 		} else if (cnt == 1) {
-			return "redirect:./list";
+			return "redirect:../notice/list";
 		} else {
 			return "./notice/error";
 		}

@@ -11,7 +11,7 @@
 <div class="container">
 <h1 class="col-sm-offset-2 col-sm-10">게시판 수정</h1>
 <form class="form-horizontal" 
-      action="./update"
+      action="../../notice/update"
       method="post"
       >
 <input type="hidden" name="noticeno" value="${dto.noticeno}">
@@ -48,7 +48,7 @@
    <div class="form-group">
    <div class="col-sm-offset-2 col-sm-5">
     <button class="btn">수정</button>
-    <button type="reset" class="btn" onclick="location.href='./list'">취소</button>
+    <button type="reset" class="btn" onclick="location.href='../../notice/list'">취소</button>
    </div>
  </div>
 </form>

@@ -15,7 +15,7 @@
 	<div class="container">
 
 		<h2 class="col-sm-offset-2 col-sm-10">삭제</h2>
-		<form class="form-horizontal" action="./delete" method="post">
+		<form class="form-horizontal" action="../../notice/delete" method="post">
 			<input type="hidden" name="noticeno" value="${param.noticeno}">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="passwd">비밀번호</label>
@@ -30,7 +30,7 @@
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-5">
 					<button class="btn">삭제</button>
-					<button type="reset" class="btn" onclick="location.href='./list'">취소</button>
+					<button type="reset" class="btn" onclick="location.href='../../notice/list'">취소</button>
 				</div>
 			</div>
 		</form>

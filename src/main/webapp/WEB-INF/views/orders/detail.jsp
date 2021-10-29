@@ -11,6 +11,7 @@
 
 		<h2>조회</h2>
 		<div class="panel panel-default">
+		<img src="/pstorage/${dto.filename}" class="img-rounded" width="100px" height="100px">
 			<div class="panel-heading">주문번호</div>
 			<div class="panel-body">${dto.orderno}</div>
 
@@ -19,7 +20,7 @@
 
 			<div class="panel-heading">상품명</div>
 			<div class="panel-body">${dto.pname}</div>
-<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px" height="50px">
+
 			<div class="panel-heading">가격</div>
 			<div class="panel-body">${dto.price}</div>
 

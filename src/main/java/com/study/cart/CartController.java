@@ -78,7 +78,7 @@ public class CartController {
 		}
 	}
 
-	@GetMapping("/cart/create")
+	@GetMapping("/cart/create/{contentsno}")
 	public String create() {
 		return "/cart/create";
 	}

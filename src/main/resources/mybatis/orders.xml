@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.study.orders.OrdersMapper">
 	<select id="detail" parameterType="int"
-		resultType="com.study.contents.ContentsDTO">
+		resultType="com.study.orders.OrdersDTO">
 		select *
 		from contents
 		where contentsno=#{contentsno}

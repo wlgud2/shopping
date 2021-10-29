@@ -14,4 +14,6 @@ public class OrdersDTO {
 	private String id;
 	private String mname;
 	private String pname;
+	private String filename                 ;
+	private int price                       ;
 }

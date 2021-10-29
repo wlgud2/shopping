@@ -32,22 +32,43 @@
 
 	<div class="container">
 		<h1 class="col-sm-offset-2 col-sm-10">상품 구매</h1>
+		<div>
+			<img src="/pstorage/${dto.filename}" style="width: 30%;">
+		</div>
 		<form class="form-horizontal" action="/orders/create" method="post"
 			enctype="multipart/form-data" onsubmit="return checkIn(this)">
-
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="pname">상품명</label>
 				<div class="col-sm-8">
-					<input type="text" value="${pname }" id="pname"
+					<input type="text" value="${dto.pname }" id="pname"
 						class="form-control-plaintext">
 				</div>
 			</div>
-			<img src="/pstorage/${dto.filename}" class="img-rounded" width="50px"
-				height="50px">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="detail">상품 정보</label>
+				<div class="col-sm-8">
+					<input type="text" value="${member.detail}" id="detail"
+						class="form-control-plaintext">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="price">가격</label>
+				<div class="col-sm-8">
+					<input type="text" value="${dto.price}" id="price"
+						class="form-control-plaintext">
+				</div>
+			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="quantity">갯수</label>
 				<div class="col-sm-8">
 					<input type="text" name="quantity" id="quantity"
+						class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="total">결제금액</label>
+				<div class="col-sm-8">
+					<input type="text" name="total" id="total"
 						class="form-control">
 				</div>
 			</div>
@@ -58,32 +79,17 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="price">가격</label>
-				<div class="col-sm-8">
-					<input type="text" value="${price}" id="price"
-						class="form-control-plaintext">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="detail">상품 정보</label>
-				<div class="col-sm-8">
-					<input type="text" value="${detail}" id="detail"
-						class="form-control-plaintext">
-				</div>
-			</div>
-			<div class="form-group">
 				<label class="control-label col-sm-2" for="mname">받는 사람</label>
 				<div class="col-sm-8">
-					<input type="text" value="${mname}" id="mname"
+					<input type="text" value="${dto.mname}" id="mname"
 						class="form-control-plaintext">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="address">주소</label>
 				<div class="col-sm-8">
-					<input type="text" value="${address1},${address2}" id="address"
-						class="form-control-plaintext">
+					<input type="text" value="${member.address1},${member.address2}"
+						id="address" class="form-control-plaintext">
 				</div>
 			</div>
 			<div class="form-group">

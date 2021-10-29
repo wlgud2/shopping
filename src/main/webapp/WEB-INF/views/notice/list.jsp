@@ -21,7 +21,7 @@
   <script>
   $.ajax({ // 컨트롤러와 통신
 	  type: 'POST',
-	  url: "/notice/create",
+	  url: "/admin/notice/create",
 	  data: JSON.stringify(data),
 	  //contentType: "application/json; charset=UTF-8",
 	  dataType:"json",
@@ -69,7 +69,10 @@
       name="word" value="${word}">
     </div>
     <button type="submit" class="btn btn-default" >검색</button>
-    <button type="button" class="btn btn-default" onclick="location.href='../notice/create'">등록</button>
+    <c:if test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+    <button type="button" class="btn btn-default"
+    onclick="location.href='../admin/notice/create'">등록</button>
+    </c:if>
   </form>
   
   <table class="table table-striped">
@@ -89,9 +92,7 @@
    <tr><td colspan="6">등록된 글이 없습니다.</td>
 </c:when>
 <c:otherwise>
-  
    <c:forEach var="dto" items="${list}"> 
-   
    <tr>
     <td>${dto.noticeno}</td>
     <td>

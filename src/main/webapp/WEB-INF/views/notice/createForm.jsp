@@ -35,7 +35,7 @@
 <div class="container">
 <h2 class="col-sm-offset-2 col-sm-10">공지 생성</h2>
 <form class="form-horizontal" 
-      action="./create"
+      action="../../notice/create"
       method="post"
       onsubmit="return checkIn(this)"
       >
@@ -69,7 +69,7 @@
    <div class="form-group">
    <div class="col-sm-offset-2 col-sm-5">
     <button class="btn">등록</button>
-    <button type="reset" class="btn" onclick="location.href='./list'">취소</button>
+    <button type="reset" class="btn" onclick="location.href='../../notice/list'">취소</button>
    </div>
  </div>
 </form>
