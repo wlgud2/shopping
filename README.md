@@ -14,6 +14,23 @@
 - **[상품](https://github.com/wlgud2/shopping/blob/master/%EC%B0%B8%EA%B3%A0%EC%82%AC%EC%A7%84/%EC%83%81%ED%92%88.PNG)**
   - 목록, 상세페이지
   - 등록, 수정, 삭제
-  - 주문하기, 장바구니
+  - _주문하기, 장바구니 -- 구현 중_
 - **[QnA](https://github.com/wlgud2/shopping/blob/master/%EC%B0%B8%EA%B3%A0%EC%82%AC%EC%A7%84/1%EB%8C%801%EB%AC%B8%EC%9D%98.PNG)**
   - 챗봇
+
+---
+
+> 구현 기능 코드
+
+1. 공지사항
+   - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/notice)
+   - [controller](https://github.com/wlgud2/shopping/blob/master/src/main/java/com/study/notice/NoticeController.java)
+2. 상품(목록, 등록, 수정, 삭제)
+   - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/contents)
+   - [controller](https://github.com/wlgud2/shopping/blob/master/src/main/java/com/study/contents/ContentsController.java)
+3. 주문하기
+   - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/orders)
+   - [controller](https://github.com/wlgud2/shopping/blob/master/src/main/java/com/study/orders/OrdersController.java)
+4. 장바구니
+   - [view](https://github.com/wlgud2/shopping/tree/master/src/main/webapp/WEB-INF/views/cart)
+   - [controller](https://github.com/wlgud2/shopping/blob/master/src/main/java/com/study/cart/CartController.java)
